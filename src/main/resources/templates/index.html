@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Inicialização de Programas - by Danilo Buzar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="#" th:action="@{/}" th:object="${software}" method="post">
+		<h1>Digite o caminho completo para o software a ser executado</h1>
+		<input type="text" th:field="*{softwareName}" size="60" />&nbsp;<input
+			type="submit" value="Executar" />
+		<h2 th:if="${error}" th:text="${error}" style="color: red"></h2>
+		<h1 th:if="${output}">Saída do programa:</h1>
+		<br />
+		<textarea th:if="${output}" name="output" rows="20" style="width: 750px; " th:inline="text" readonly="readonly">[[${output}]]</textarea>
+	</form>
+
+</body>
+</html>
